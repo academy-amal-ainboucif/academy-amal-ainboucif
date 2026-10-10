@@ -292,28 +292,25 @@ body.ltr .nav a::after { right: auto; left: 0; }
     <div class="container">
         <h2 class="section-title" data-ar="التسجيل" data-fr="Inscription">التسجيل</h2>
         <p class="section-subtitle" data-ar="املأ الاستمارة وسنتواصل معك قريباً" data-fr="Remplissez le formulaire et nous vous contacterons bientôt">املأ الاستمارة وسنتواصل معك قريباً</p>
-        <form class="register-form" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-                <input type="text" data-ar-placeholder="الاسم الكامل للاعب" data-fr-placeholder="Nom complet du joueur" placeholder="الاسم الكامل للاعب" required>
-                <input type="date" required>
-            </div>
-            <div class="form-row">
-                <input type="text" data-ar-placeholder="اسم الولي" data-fr-placeholder="Nom du tuteur" placeholder="اسم الولي" required>
-                <input type="tel" data-ar-placeholder="رقم الهاتف" data-fr-placeholder="Numéro de téléphone" placeholder="رقم الهاتف" required>
-            </div>
-            <div class="form-row">
-                <select required>
-                    <option value="" data-ar="اختر الفئة العمرية" data-fr="Choisir la catégorie">اختر الفئة العمرية</option>
-                    <option>U7 — 5-7</option>
-                    <option>U9 — 7-9</option>
-                    <option>U11 — 9-11</option>
-                    <option>U13 — 11-13</option>
-                    <option>U14 — 13-14</option>
-                </select>
-            </div>
-            <textarea data-ar-placeholder="ملاحظات إضافية (اختياري)" data-fr-placeholder="Notes supplémentaires (optionnel)" placeholder="ملاحظات إضافية (اختياري)" rows="3"></textarea>
-            <button type="submit" data-ar="إرسال الطلب" data-fr="Envoyer la demande">إرسال الطلب</button>
-        </form>
+<form class="register-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+        <input type="text" id="name_ar" data-ar-placeholder="الاسم بالعربية" data-fr-placeholder="Prénom en arabe" placeholder="الاسم بالعربية" required>
+        <input type="text" id="name_fr" data-ar-placeholder="الاسم بالفرنسية" data-fr-placeholder="Prénom en français" placeholder="الاسم بالفرنسية" required>
+    </div>
+    <div class="form-row">
+        <input type="text" id="lastname_ar" data-ar-placeholder="اللقب بالعربية" data-fr-placeholder="Nom en arabe" placeholder="اللقب بالعربية" required>
+        <input type="text" id="lastname_fr" data-ar-placeholder="اللقب بالفرنسية" data-fr-placeholder="Nom en français" placeholder="اللقب بالفرنسية" required>
+    </div>
+    <div class="form-row">
+        <input type="text" id="birthplace" data-ar-placeholder="مكان الميلاد" data-fr-placeholder="Lieu de naissance" placeholder="مكان الميلاد" required>
+        <input type="date" id="birthdate" required>
+    </div>
+    <div class="form-row">
+        <input type="text" id="father_name" data-ar-placeholder="اسم الأب" data-fr-placeholder="Nom du père" placeholder="اسم الأب" required>
+        <input type="tel" id="guardian_phone" data-ar-placeholder="هاتف الولي" data-fr-placeholder="Téléphone du tuteur" placeholder="هاتف الولي" required>
+    </div>
+    <button type="submit" data-ar="إرسال الطلب على واتساب" data-fr="Envoyer via WhatsApp">إرسال الطلب على واتساب</button>
+</form>
     </div>
 </section>
 </section>
