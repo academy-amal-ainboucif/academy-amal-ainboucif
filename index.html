@@ -293,3 +293,74 @@ body.ltr .nav a::after { right: auto; left: 0; }
         <div class="footer-logo">
             <img src="images/Logo.png" alt="Logo">
             <p data-ar="أكاديمية أمل عين بوسيف لكرة القدم" data-fr="Académie Amel Ain Boucif Footba
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-ar="© 2025 أكاديمية أمل عين بوسيف — جميع الحقوق محفوظة" data-fr="© 2025 Académie Amel Ain Boucif — Tous droits réservés">© 2025 أكاديمية أمل عين بوسيف — جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btnAr = document.getElementById('btnAr');
+    var btnFr = document.getElementById('btnFr');
+    
+    if (btnAr) btnAr.onclick = function() { setLang('ar'); };
+    if (btnFr) btnFr.onclick = function() { setLang('fr'); };
+    
+    var menuBtn = document.querySelector('.menu-btn');
+    if (menuBtn) menuBtn.onclick = function() {
+        document.getElementById('navMenu').classList.toggle('active');
+    };
+    
+    var saved = localStorage.getItem('siteLang');
+    if (saved === 'fr') setLang('fr');
+});
+
+function setLang(lang) {
+    document.body.setAttribute('dir', lang === 'fr' ? 'ltr' : 'rtl');
+    document.documentElement.lang = lang;
+    
+    var elements = document.querySelectorAll('[data-ar][data-fr]');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].textContent = elements[i].getAttribute('data-' + lang);
+    }
+    
+    var placeholders = document.querySelectorAll('[data-ar-placeholder][data-fr-placeholder]');
+    for (var i = 0; i < placeholders.length; i++) {
+        placeholders[i].placeholder = placeholders[i].getAttribute('data-' + lang + '-placeholder');
+    }
+    
+    var btnAr = document.getElementById('btnAr');
+    var btnFr = document.getElementById('btnFr');
+    if (btnAr && btnFr) {
+        if (lang === 'fr') {
+            btnAr.classList.remove('active');
+            btnFr.classList.add('active');
+        } else {
+            btnFr.classList.remove('active');
+            btnAr.classList.add('active');
+        }
+    }
+    
+    localStorage.setItem('siteLang', lang);
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+    var lang = localStorage.getItem('siteLang') || 'ar';
+    alert(lang === 'fr' ? '✅ Demande envoyée avec succès!' : '✅ تم إرسال طلب التسجيل بنجاح!');
+    e.target.reset();
+}
+
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 25px rgba(0,0,0,0.15)';
+    } else {
+        header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.08)';
+    }
+});
+</script>
+</body>
+</html>
